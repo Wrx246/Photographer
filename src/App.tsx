@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Main from './components/main/Main';
+import Navbar from './components/Navbar';
+import PhotoDetails from './components/photos/photoDetails/PhotoDetails';
+import Photos from './components/photos/Photos';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Main />} />
+        <Route path='/photos' element={<Photos />} />
+        <Route path='/photos/:id' element={<PhotoDetails />} />
+      </Routes>
+    </>
   );
 }
 
